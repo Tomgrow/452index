@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-gap: 20px;
+            padding: 2rem;
+        }
+        article {
+            background-color: #f1f1f1;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        article h2 {
+            margin-bottom: 1rem;
+        }
+        article p {
+            margin-bottom: 2rem;
+        }
+        .sidebar {
+            background-color: #eaeaea;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Electronics Blog</h1>
+        <nav>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="products.html">product</a></li>
+            <li><a href="aboutus.html">about us</a></li>
+            <li><a href="support.html">support</a></li>
+            <li><a href="news.html">news and boge</a></li>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Article List -->
+        <article>
+            <h2>New Release: Smartwatch X9</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod lorem vel velit cursus, at fermentum sapien dapibus.</p>
+            <a href="#">Read More</a>
+        </article>
+        
+        <article>
+            <h2>The Future of Foldable Phones</h2>
+            <p>Praesent tincidunt mi ut libero dignissim, vitae luctus urna dapibus. Nulla facilisi. Etiam id justo nec lectus consequat posuere.</p>
+            <a href="#">Read More</a>
+        </article>
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Latest News</h3>
+            <ul>
+                <li><a href="#">Upcoming Tech Events</a></li>
+                <li><a href="#">Top 5 Gadgets of the Month</a></li>
+                <li><a href="#">Tech Tips and Tricks</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Electronics Blog. All Rights Reserved.
+    </footer>
+</body>
+</html>

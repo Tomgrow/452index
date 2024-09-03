@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+        }
+        img {
+  width: 100%;      /* 设置宽度为100%，图片会根据容器大小自动调整 */
+  height: auto;     /* 高度自动调整以保持图片原始的宽高比 */
+  max-width: 300px; /* 设置最大宽度为100px，如果需要的话 */
+  max-height: 300px; /* 设置最大高度为100px，如果需要的话 */
+}
+        .navcontain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            background-color: #333;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 50%;
+        }
+        .navbar li {
+            display: inline-block;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        .navbar .logo img {
+            max-height: 40px;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin: 20px 0;
+        }
+        #cart {
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #cart li {
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <div class="navcontain">
+        <ul class="navbar">
+            <li class="logo"><a href="index.html"><img src="123.webp"></a></li>       <!---a logo and it can jump to homepage-->
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="news.html">News and Blog</a></li>
+        </ul>       <!---navbar-->
+    </div>
+    
+    <div id="products">
+        <div class="product1">
+            <div class="product1div">
+                <img src="1.png" class="product1img">
+                <p style="color: white;">HUAWEI P50 Pro---$10,000</p>
+                <button onclick="addToCart('HUAWEI P50 Pro', 10000)">Add to Cart</button>
+            </div>
+            <div class="product1div">
+                <img src="2.jpg" class="product1img">
+                <p style="color: white;">HUAWEI Watch GT 2---$499</p>
+                <button onclick="addToCart('HUAWEI Watch GT 2', 499)">Add to Cart</button>
+                <p style="color: white;">HUAWEI Watch GT 3 Pro---$699</p>
+                <button onclick="addToCart('HUAWEI Watch GT 3 Pro', 699)">Add to Cart</button>
+            </div>
+            <div class="product1div">
+                <img src="3.jpeg" class="product1img">
+                <p style="color: white;">HUAWEI MateBook X Pro---$1888</p>
+                <button onclick="addToCart('HUAWEI MateBook X Pro', 1888)">Add to Cart</button>
+                <p style="color: white;">HUAWEI MateBook 14---$1999</p>
+                <button onclick="addToCart('HUAWEI MateBook 14', 1999)">Add to Cart</button>
+                <p style="color: white;">HUAWEI MatePad Pro---$2499</p>
+                <button onclick="addToCart('HUAWEI MatePad Pro', 2499)">Add to Cart</button>
+                <p style="color: white;">HUAWEI MateBook 16---$2000</p>
+                <button onclick="addToCart('HUAWEI MateBook 16', 2000)">Add to Cart</button>
+            </div>
+        </div>              <!--bussiness goods list-->
+        <div class="product2">
+            <div class="product2h2andp">
+                <h2 style="color: white;">More HUAWEI Products</h2>
+                <button onclick="window.location.href='learn-more.html'">Learn more about HUAWEI Products</button>
+            </div>
+            <div class="product2divcontainor">
+                <div class="div1">
+                    <img src="4.jpg">
+                    <p style="color: white;">HUAWEI Card</p>
+                    <button onclick="window.location.href='huawei-card.html'">Learn more </button>
+                </div>
+                <div  class="div2">
+                    <img src="8.jpg">
+                    <p style="color: white;">HUAWEI Education Tools---$5699</p>
+                    <button onclick="addToCart('HUAWEI Education Tools', 5699)">Add to Cart</button>
+                </div>
+                <div class="div3">
+                    <img src="7.jpg">
+                    <p style="color: white;">HUAWEI MatePad---$1,3999</p>
+                    <button onclick="addToCart('HUAWEI MatePad', 13999)">Add to Cart</button>
+                </div>
+            </div>
+        </div>                                <!--home product list-->
+    </div>
+
+    <div id="cart" style="color: white; margin-top: 20px;">
+        <h2>Your Shopping Cart</h2>
+        <ul id="cartItems">
+        </ul>
+        <p>Total: <span id="totalPrice">0</span></p>
+    </div>
+
+<footer class="site-footer">            <!---footer-->
+    <p>Copyright © 2024 HUAWEI. Inc All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = [];
+
+    function addToCart(name, price) {
+        cart.push({name: name, price: price});
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItemsElement = document.getElementById('cartItems');
+        const totalPriceElement = document.getElementById('totalPrice');
+        
+        cartItemsElement.innerHTML = '';
+        let totalPrice = 0;
+        for (let item of cart) {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - $${item.price}`;
+            cartItemsElement.appendChild(li);
+            totalPrice += item.price;
+        }
+        totalPriceElement.textContent = totalPrice;
+    }
+</script>
+</body>
+</html>
